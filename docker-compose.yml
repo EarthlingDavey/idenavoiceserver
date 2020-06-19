@@ -18,7 +18,7 @@ services:
       - ./neo4j/import:/var/lib/neo4j/import
       - ./neo4j/logs:/var/lib/neo4j/logs
 
-    build: ./runner
+  build: ./runner
     ports:
       - 4002:4002
     environment:
@@ -32,9 +32,9 @@ services:
         source: ./.git
         target: /app/.git
         read_only: true
-    depends_on:
-      - neo4j
-      - node
+    # depends_on:
+      # - neo4j
+      # - node
 
   node:
     image: rinzlerfr/idena-node:latest
