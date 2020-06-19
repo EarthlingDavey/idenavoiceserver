@@ -1,5 +1,5 @@
 {
-  "name": "idenavoiceserver-syncer",
+  "name": "idenavoiceserver-runner",
   "version": "0.0.1",
   "description": "",
   "main": "src/index.js",

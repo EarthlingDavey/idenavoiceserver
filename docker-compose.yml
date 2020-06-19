@@ -18,7 +18,8 @@ services:
       - ./neo4j/import:/var/lib/neo4j/import
       - ./neo4j/logs:/var/lib/neo4j/logs
 
-  build: ./runner
+  runner:
+    build: ./runner
     ports:
       - 4002:4002
     environment:
