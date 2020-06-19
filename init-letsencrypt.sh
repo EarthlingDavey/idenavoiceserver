@@ -5,12 +5,11 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-if [ -z $domains ] then
-  echo "\$domains is empty"
+if [ -z $domains ]; then
   exit
 fi
 
-if [ -z $email ] then
+if [ -z $email ]; then
   echo "\$email is not set, it can be an empty string"
   exit
 fi
