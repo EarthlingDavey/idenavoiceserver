@@ -34,7 +34,6 @@ server {
     server_name ${NGINX_HOST};
     listen 7689;
     
-    ssl on;
     ssl_certificate /etc/letsencrypt/live/${NGINX_HOST}/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/${NGINX_HOST}/privkey.pem;
 
