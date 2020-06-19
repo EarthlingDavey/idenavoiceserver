@@ -5,6 +5,7 @@ services:
   neo4j:
     image: neo4j:latest
     ports:
+      - 7473:7473
       - 7474:7474
       - 7687:7687
     environment:
@@ -17,6 +18,11 @@ services:
       - ./neo4j/data:/var/lib/neo4j/data
       - ./neo4j/import:/var/lib/neo4j/import
       - ./neo4j/logs:/var/lib/neo4j/logs
+      - ./https/certbot/conf/live/${NGINX_HOST}:/var/lib/neo4j/certbot-live
+    command: >
+      sh -c "sudo ln -s /var/lib/neo4j/certbot-live/privkey.pem neo4j.key &&
+      sudo ln -s /var/lib/neo4j/certbot-live/fullchain.pem neo4j.cert &&
+      sudo ln -s /var/lib/neo4j/certbot-live/fullchain.pem trusted/neo4j.cert"
 
   runner:
     build: ./runner
