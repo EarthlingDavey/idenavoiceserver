@@ -5,15 +5,15 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-if [ -z "$domains" ]; then
-  echo "\$domains is not set"
-  exit
-fi
+# if [ -z "$domains" ]; then
+#   echo "\$domains is not set"
+#   exit
+# fi
 
-if [ -z "$email" ]; then
-  echo "\$email is not set, it can be an empty string"
-  exit
-fi
+# if [ -z "$email" ]; then
+#   echo "\$email is not set, it can be an empty string"
+#   exit
+# fi
 
 rsa_key_size=4096
 data_path="./data/certbot"
