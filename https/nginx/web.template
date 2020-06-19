@@ -38,7 +38,7 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/${NGINX_HOST}/privkey.pem;
 
     location / {
-        proxy_pass  http://neo4j:7687
+        proxy_pass  http://neo4j:7687;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
