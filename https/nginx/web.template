@@ -29,6 +29,24 @@ server {
     # ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
 }
+
+server {
+    server_name ${NGINX_HOST};
+    listen 7689;
+    
+    ssl on;
+    ssl_certificate /etc/letsencrypt/live/${NGINX_HOST}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/${NGINX_HOST}/privkey.pem;
+
+    location / {
+        proxy_pass  http://neo4j:7687
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_read_timeout 86400;
+    }
+}
+
   # server {
   #   listen 80;
   #   listen [::]:80;
