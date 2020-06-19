@@ -10,6 +10,7 @@ services:
       - 7687:7687
     environment:
       - NEO4J_dbms_security_procedures_unrestricted=apoc.*
+      - NEO4J_dbms_default_advertised_address=${NGINX_HOST}
       - NEO4JLABS_PLUGINS=["apoc"]
     env_file:
       - ./neo4j/.env
@@ -19,11 +20,11 @@ services:
       - ./neo4j/import:/var/lib/neo4j/import
       - ./neo4j/logs:/var/lib/neo4j/logs
       - ./https/certbot/conf/live/${NGINX_HOST}:/var/lib/neo4j/certbot-live
-    # command: >
-    #   sh -c "ln -s /var/lib/neo4j/certbot-live/privkey.pem /var/lib/neo4j/certificates/neo4j.key &&
-    #   ln -s /var/lib/neo4j/certbot-live/fullchain.pem /var/lib/neo4j/certificates/neo4j.cert &&
-    #   mkdir -p /var/lib/neo4j/certificates/trusted && 
-    #   ln -s /var/lib/neo4j/certbot-live/fullchain.pem /var/lib/neo4j/certificates/trusted/neo4j.cert"
+    command: >
+      bash -c "ln -s /var/lib/neo4j/certbot-live/privkey.pem /var/lib/neo4j/certificates/neo4j.key &&
+      ln -s /var/lib/neo4j/certbot-live/fullchain.pem /var/lib/neo4j/certificates/neo4j.cert &&
+      mkdir -p /var/lib/neo4j/certificates/trusted && 
+      ln -s /var/lib/neo4j/certbot-live/fullchain.pem /var/lib/neo4j/certificates/trusted/neo4j.cert"
 
   runner:
     build: ./runner
