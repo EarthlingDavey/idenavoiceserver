@@ -79,7 +79,6 @@ http {
         ssl_ecdh_curve secp384r1;
         ssl_certificate /etc/letsencrypt/live/${NGINX_HOST}/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/${NGINX_HOST}/privkey.pem;
-        ssl_dhparam /etc/nginx/conf.d/ssl/dhparam.pem;
         
         location / {
             proxy_pass https://neo4j_bolt;
