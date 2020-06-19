@@ -1,0 +1,14 @@
+runner/node_modules
+rpc/datadir
+neo4j/data/databases
+neo4j/data/transactions
+neo4j/data/dbms
+neo4j/logs
+node/datadir/idenachain.db
+node/datadir/ipfs
+node/datadir/keystore
+node/datadir/logs
+node/datadir/snapshots
+node/datadir/version
+node/datadir/api.key
+yarn-error.log
