@@ -6,6 +6,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
 fi
 
 if [ -z $domains ]; then
+  echo "\$domains is not set"
   exit
 fi
 
