@@ -77,8 +77,8 @@ http {
         ssl_prefer_server_ciphers on;
         ssl_session_cache shared:SSL:10m;
         ssl_ecdh_curve secp384r1;
-        ssl_certificate /etc/nginx/conf.d/ssl/nginx.crt;
-        ssl_certificate_key /etc/nginx/conf.d/ssl/nginx.key;
+        ssl_certificate /etc/letsencrypt/live/${NGINX_HOST}/fullchain.pem;
+        ssl_certificate_key /etc/letsencrypt/live/${NGINX_HOST}/privkey.pem;
         ssl_dhparam /etc/nginx/conf.d/ssl/dhparam.pem;
         
         location / {
