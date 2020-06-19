@@ -20,9 +20,9 @@ services:
       - ./neo4j/logs:/var/lib/neo4j/logs
       - ./https/certbot/conf/live/${NGINX_HOST}:/var/lib/neo4j/certbot-live
     command: >
-      sh -c "sudo ln -s /var/lib/neo4j/certbot-live/privkey.pem neo4j.key &&
-      sudo ln -s /var/lib/neo4j/certbot-live/fullchain.pem neo4j.cert &&
-      sudo ln -s /var/lib/neo4j/certbot-live/fullchain.pem trusted/neo4j.cert"
+      sh -c "ln -s /var/lib/neo4j/certbot-live/privkey.pem neo4j.key &&
+      ln -s /var/lib/neo4j/certbot-live/fullchain.pem neo4j.cert &&
+      ln -s /var/lib/neo4j/certbot-live/fullchain.pem trusted/neo4j.cert"
 
   runner:
     build: ./runner
