@@ -1,0 +1,51 @@
+server {
+    listen 80;
+    server_name ${NGINX_HOST};
+
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }    
+}
+server {
+    listen 443 ssl;
+    server_name ${NGINX_HOST};
+    
+    location / {
+        proxy_pass http://${NGINX_HOST}; #for demo purposes
+    }
+
+    ssl_certificate /etc/letsencrypt/live/${NGINX_HOST}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/${NGINX_HOST}/privkey.pem;
+
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+}
+  # server {
+  #   listen 80;
+  #   listen [::]:80;
+  #   server_name localhost;
+
+  #   location /neo4j/browser {
+  #     proxy_pass http://neo4j:7474/browser;
+  #   }
+
+  #   location ~ /.well-known/acme-challenge {
+  #       allow all;
+  #       root /usr/share/nginx/html;
+  #   }
+    
+  #   # location /auth {
+  #   #   proxy_pass http://api:4001/auth;
+  #   # }
+
+  #   # location / {
+  #   #   proxy_pass http://ui:3000;
+  #   # }
+
+  # }
+

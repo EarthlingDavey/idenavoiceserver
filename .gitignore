@@ -12,3 +12,4 @@ node/datadir/snapshots
 node/datadir/version
 node/datadir/api.key
 yarn-error.log
+default.conf
