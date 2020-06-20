@@ -11,6 +11,4 @@ RUN chmod +x /docker-entrypoint.sh
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-WORKDIR "${NEO4J_HOME}"
-
 CMD ["neo4j"]

@@ -21,6 +21,8 @@ services:
       - ./neo4j/import:/var/lib/neo4j/import
       - ./neo4j/logs:/var/lib/neo4j/logs
       - ./https/certbot/conf/live/${NGINX_HOST}:/var/lib/neo4j/certbot-live
+    tty: true 
+    stdin_open: true
 
   runner:
     build: ./runner
