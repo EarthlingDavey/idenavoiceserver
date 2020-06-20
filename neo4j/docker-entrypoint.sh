@@ -19,3 +19,5 @@ done
 # Finally make sure everything is readable to the database
 sudo chgrp -R neo4j *
 sudo chmod -R g+rx *
+
+neo4j console
