@@ -20,7 +20,7 @@ services:
       - ./neo4j/data:/var/lib/neo4j/data
       - ./neo4j/import:/var/lib/neo4j/import
       - ./neo4j/logs:/var/lib/neo4j/logs
-      - ./https/certbot/conf/live/${NGINX_HOST}:/var/lib/neo4j/certbot-live
+      - ./neo4j/certificates:/var/lib/neo4j/certificates
     tty: true 
     stdin_open: true
 
