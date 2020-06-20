@@ -1,6 +1,12 @@
 #!/bin/sh
 
+cd /var/lib/neo4j
+ls
+cd /var/lib/neo4j/certbot-live
+ls
 cd /var/lib/neo4j/certificates
+ls
+
 # Move old default stuff into a backup directory.
 sudo mkdir bak
 # for certsource in bolt cluster https ; do
